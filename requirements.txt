@@ -1,0 +1,7 @@
+openai-whisper
+gradio
+transformers
+torch
+spacy
+pydub
+ffmpeg
