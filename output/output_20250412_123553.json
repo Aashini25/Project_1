@@ -1,0 +1,9 @@
+{
+    "intent": "HiringRequirement",
+    "role": "Developer",
+    "skills": [
+        "Node.js"
+    ],
+    "experience": "more than 5 years",
+    "location": "Pune"
+}

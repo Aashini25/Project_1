@@ -1,0 +1,9 @@
+{
+    "intent": "HiringRequirement",
+    "role": null,
+    "skills": [
+        "Java"
+    ],
+    "experience": "5 years",
+    "location": "Chennai"
+}

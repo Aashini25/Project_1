@@ -1,0 +1,10 @@
+{
+    "intent": "HiringRequirement",
+    "role": "Architect",
+    "skills": [
+        "Java",
+        "AWS"
+    ],
+    "experience": 5,
+    "location": "Chennai"
+}
