@@ -4,21 +4,28 @@ from pipeline.stt import transcribe_audio
 from pipeline.nlp import extract_entities
 from pipeline.utils import save_output
 
-def process_audio(audio_file):
-    if audio_file is None or not os.path.exists(audio_file):
-        raise ValueError("Invalid audio file path or file does not exist.")
+def process_input(audio_file=None, text_input=""):
+    # Priority: audio > text
+    if audio_file and os.path.exists(audio_file):
+        transcript = transcribe_audio(audio_file)
+    elif text_input.strip():
+        transcript = text_input.strip()
+    else:
+        return {"error": "Please provide either audio or text input."}
 
-    transcript = transcribe_audio(audio_file)
     output = extract_entities(transcript)
     save_output(output)
     return output
 
 iface = gr.Interface(
-    fn=process_audio,
-    inputs=gr.Audio(type="filepath", label="Record your voice"),
+    fn=process_input,
+    inputs=[
+        gr.Audio(type="filepath", label="Record your voice (optional)"),
+        gr.Textbox(lines=2, placeholder="Or type your requirement here...", label="Type your input (optional)")
+    ],
     outputs="json",
     title="Client Requirement Extractor",
-    description="Speak your hiring requirement and extract structured details."
+    description="Speak or type your hiring requirement to extract structured details like role, skills, experience, and location."
 )
 
 if __name__ == "__main__":

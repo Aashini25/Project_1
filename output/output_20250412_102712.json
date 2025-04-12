@@ -1,0 +1,9 @@
+{
+    "intent": "HiringRequirement",
+    "role": "Developer",
+    "skills": [
+        "React"
+    ],
+    "experience": "five years",
+    "location": "React"
+}
